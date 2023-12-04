@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>4.31</version>
+        <version>4.51</version>
         <relativePath />
     </parent>
 
@@ -16,10 +16,9 @@
     <packaging>hpi</packaging>
 
     <properties>
-        <java.level>8</java.level>
 
         <!-- JENKINS -->
-        <jenkins.version>2.319</jenkins.version>
+        <jenkins.version>2.346.3</jenkins.version>
 
         <!-- MAIN -->
         <plain-credentials.version>1.7</plain-credentials.version>
@@ -42,13 +41,23 @@
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.jenkins.tools.bom</groupId>
+                <artifactId>bom-weekly</artifactId>
+                <version>2612.v3d6a_2128c0ef</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- JENKINS -->
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>plain-credentials</artifactId>
-            <version>${plain-credentials.version}</version>
         </dependency>
 
         <dependency>
@@ -80,7 +89,6 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>${mockito-core.version}</version>
             <scope>test</scope>
         </dependency>
 
